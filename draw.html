@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pickleball Tournament - Group Stage & Next Stage Draw</title>
+    <style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 20px;
+        background-color: #f8f8f8;
+        text-align: center;
+    }
+    h2 {
+        color: #333;
+        font-size: 45px; 
+    }
+    .group-container {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 20px;
+    }
+    .group {
+        background: white;
+        padding: 15px;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        width: 400px;
+    }
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 10px;
+    }
+    th, td {
+        border: 1px solid #ddd;
+        padding: 8px;
+        text-align: center;
+        font-size: 15px; 
+    }
+    th {
+        background-color: #173d72;
+        color: white;
+    }
+    input {
+        text-align: center;
+    }
+
+    input:disabled {
+        background-color: #f0f0f0;
+        color: #666;
+        border: 1px solid #ddd;
+    }
+
+    .matchup-container {
+        margin-top: 30px;
+        padding: 10px;
+        border-radius: 10px;
+        background-color: #e6f7ff;
+        width: 50%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .matchup {
+        font-size: 20px;
+        font-weight: bold;
+    }
+
+    button {
+        padding: 10px 20px;
+        font-size: 16px;
+        background-color: #173d72;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+
+    button:hover {
+        background-color: #1771a5;
+    }
+
+    /* Remove bullet points from the list */
+    ul {
+        list-style-type: none; /* Removes bullet points */
+        padding: 0; /* Optional: removes extra space inside the list */
+    }
+    ul li {
+        margin-bottom: 10px; /* Adjust the value to increase or decrease the space */
+    }
+</style>
+</head>
+<body>
+    <h2>Pickleball Tournament</h2>
+
+    <!-- Group Stage -->
+    <h3>Group Stage</h3>
+    <div class="group-container">
+        <!-- Group A -->
+        <div class="group">
+            <h4>Group A</h4>
+            <table>
+                <tr><th>Team</th><th>W</th><th>Pts</th></tr>
+                <tr><td><b>Thomas & Cody</b></td><td>3</td><td>9</td></tr>
+                <tr><td><b>Anthony & Marie</b></td><td>2</td><td>6</td></tr>
+                <tr><td>Célia & Clara</td><td>1</td><td>3</td></tr>
+                <tr><td>Gianni & Anna</td><td>0</td><td>0</td></tr>
+            </table>
+        </div>
+        <!-- Group B -->
+        <div class="group">
+            <h4>Group B</h4>
+            <table>
+                <tr><th>Team</th><th>W</th><th>Pts</th></tr>
+                <tr><td><b>Valerie & Alicia</b></td><td>3</td><td>9</td></tr>
+                <tr><td><b>Vincenzo L. & Adrian</b></td><td>2</td><td>6</td></tr>
+                <tr><td>Torsten & Luca</td><td>1</td><td>3</td></tr>
+                <tr><td>Nicola & Beate</td><td>0</td><td>0</td></tr>
+            </table>
+        </div>
+        <!-- Group C -->
+        <div class="group">
+            <h4>Group C</h4>
+            <table>
+                <tr><th>Team</th><th>W</th><th>Pts</th></tr>
+                <tr><td><b>Ala & Timo</b></td><td>3</td><td>9</td></tr>
+                <tr><td><b>Sunci & Benji</b></td><td>2</td><td>6</td></tr>
+                <tr><td>Dimitri & Chaima</td><td>1</td><td>3</td></tr>
+                <tr><td>Lina & Tobi</td><td>0</td><td>0</td></tr>
+            </table>
+        </div>
+        <!-- Group D -->
+        <div class="group">
+            <h4>Group D</h4>
+            <table>
+                <tr><th>Team</th><th>W</th><th>Pts</th></tr>
+                <tr><td><b>Andi & Paolo</b></td><td>3</td><td>9</td></tr>
+                <tr><td><b>Evie & Alex</b></td><td>2</td><td>6</td></tr>
+                <tr><td>Tiffany & Aylin</td><td>1</td><td>3</td></tr>
+                <tr><td>Arndt & Maximilian</td><td>0</td><td>0</td></tr>
+            </table>
+        </div>
+    </div>
+
+    <!-- Next Stage Draw -->
+    <h3>Next Stage Draw Simulation</h3>
+    <button onclick="generateDraw()">Generate Random Draw</button>
+
+    <!-- Container to show matchups -->
+    <div class="matchup-container" id="matchups-container">
+        <ul id="matchups-list">
+            <!-- Matchups will be displayed here -->
+        </ul>
+    </div>
+
+    <script>
+        // Teams for each group (place 1 and 2)
+        const teams = {
+            "Group A": {
+                place1: "Thomas & Cody",
+                place2: "Anthony & Marie"
+            },
+            "Group B": {
+                place1: "Valerie & Alicia",
+                place2: "Vincenzo L. & Adrian"
+            },
+            "Group C": {
+                place1: "Ala & Timo",
+                place2: "Sunci & Benji"
+            },
+            "Group D": {
+                place1: "Andi & Paolo",
+                place2: "Evie & Alex"
+            }
+        };
+
+        // All Place 1 teams (the teams that are placed first in each group)
+        const place1Teams = [
+            teams["Group A"].place1,   // Group A Place 1
+            teams["Group B"].place1,   // Group B Place 1
+            teams["Group C"].place1,   // Group C Place 1
+            teams["Group D"].place1    // Group D Place 1
+        ];
+
+        // All Place 2 teams (the teams that are placed second in each group)
+        const place2Teams = [
+            teams["Group A"].place2,   // Group A Place 2
+            teams["Group B"].place2,   // Group B Place 2
+            teams["Group C"].place2,   // Group C Place 2
+            teams["Group D"].place2    // Group D Place 2
+        ];
+
+        // Function to generate a random draw (including all place 1 teams)
+        function generateDraw() {
+            const randomMatchups = getRandomMatchups();
+            displayMatchups(randomMatchups);
+        }
+
+        // Function to generate random matchups for place 1 teams against place 2 teams from different groups
+        function getRandomMatchups() {
+            let matchups = [];
+
+            // Clone place2Teams and shuffle them to randomize the matchups
+            let availablePlace2Teams = [...place2Teams]; // Copy to avoid mutation issues
+            shuffleArray(availablePlace2Teams);
+
+            // For each place1 team, match it with a place2 team from a different group
+            for (let i = 0; i < place1Teams.length; i++) {
+                const team1 = place1Teams[i];
+
+                // Find a valid place2 team that is from a different group
+                let team2 = null;
+
+                for (let j = 0; j < availablePlace2Teams.length; j++) {
+                    const potentialTeam2 = availablePlace2Teams[j];
+
+                    // Ensure that the place1 team is not from the same group as place2
+                    if (!isSameGroup(team1, potentialTeam2)) {
+                        team2 = potentialTeam2;
+                        // Remove the matched team2 to avoid reusing it
+                        availablePlace2Teams.splice(j, 1);
+                        break;
+                    }
+                }
+
+                // If a valid team2 was found, add the matchup
+                if (team2) {
+                    matchups.push({ team1, team2 });
+                }
+            }
+
+            return matchups;
+        }
+
+        // Helper function to check if two teams are from the same group
+        function isSameGroup(team1, team2) {
+            for (let group in teams) {
+                if (teams[group].place1 === team1 && teams[group].place2 === team2) {
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        // Function to shuffle an array randomly (Fisher-Yates shuffle)
+        function shuffleArray(array) {
+            for (let i = array.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [array[i], array[j]] = [array[j], array[i]]; // Swap elements
+            }
+        }
+
+        // Function to display matchups on the page
+        function displayMatchups(matchups) {
+            const matchupsList = document.getElementById("matchups-list");
+            matchupsList.innerHTML = ""; // Clear previous matchups
+
+            // If there are no valid matchups, display a message
+            if (matchups.length === 0) {
+                matchupsList.innerHTML = "<li>No valid matchups available.</li>";
+                return;
+            }
+
+            matchups.forEach((matchup) => {
+                const listItem = document.createElement("li");
+                listItem.classList.add("matchup");
+                listItem.textContent = `${matchup.team1} vs ${matchup.team2}`;
+                matchupsList.appendChild(listItem);
+            });
+        }
+    </script>
+</body>
+</html>
