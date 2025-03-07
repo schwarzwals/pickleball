@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pickleball Tournament - Group Stage</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f8f8f8;
+            text-align: center;
+        }
+        h2 {
+            color: #333;
+            font-size: 45px; 
+        }
+        .group-container {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        .group {
+            background: white;
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 400px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: center;
+            font-size: 15px; 
+        }
+        th {
+            background-color: #173d72;
+            color: white;
+        }
+        input {
+            text-align: center;
+        }
+
+        input:disabled {
+            background-color: #f0f0f0; /* Optional: Change background color for disabled input */
+            color: #666; /* Optional: Change text color for disabled input */
+            border: 1px solid #ddd; /* Optional: Ensure border consistency */
+        }
+    </style>
+</head>
+<body>
+    <h2>Pickleball Tournament - Group Stage</h2>
+    <div class="group-container">
+        <!-- Group A -->
+        <div class="group">
+            <h3>Group A</h3>
+            <table>
+                <tr><th>Team</th><th>W</th><th>Pts</th></tr>
+                <tr><td><b>Thomas & Cody</b></td><td>3</td><td>9</td></tr>
+                <tr><td><b>Anthony & Marie</b></td><td>2</td><td>6</td></tr>
+                <tr><td>Célia & Clara</td><td>1</td><td>3</td></tr>
+                <tr><td>Gianni & Anna</td><td>0</td><td>0</td></tr>
+            </table>
+            <h4>Matches</h4>
+            <table>
+                <tr><th>Match</th><th>Result</th></tr>
+                <tr><td>Thomas/Cody <b>vs</b> Anthony/Marie</td><td><input type="text" size="5" placeholder="1:0" disabled></td></tr>
+                <tr><td>Gianni/Anna <b>vs</b> Célia/Clara</td><td><input type="text" size="5" placeholder="0:1" disabled></td></tr>
+                <tr><td>Thomas/Cody <b>vs</b> Gianni/Anna</td><td><input type="text" size="5" placeholder="1:0" disabled></td></tr>
+                <tr><td>Anthony/Marie <b>vs</b> Célia/Clara</td><td><input type="text" size="5" placeholder="1:0" disabled></td></tr>
+                <tr><td>Thomas/Cody <b>vs</b> Célia/Clara</td><td><input type="text" size="5" placeholder="1:0" disabled></td></tr>
+                <tr><td>Anthony/Marie <b>vs</b> Gianni/Anna</td><td><input type="text" size="5" placeholder="1:0" disabled></td></tr>
+            </table>
+        </div>
+        <!-- Group B -->
+        <div class="group">
+            <h3>Group B</h3>
+            <table>
+                <tr><th>Team</th><th>W</th><th>Pts</th></tr>
+                <tr><td><b>Valerie & Alicia</b></td><td>3</td><td>9</td></tr>
+                <tr><td><b>Vincenzo L. & Adrian</b></td><td>2</td><td>6</td></tr>
+                <tr><td>Torsten & Luca</td><td>1</td><td>3</td></tr>
+                <tr><td>Nicola & Beate</td><td>0</td><td>0</td></tr>
+            </table>
+            <h4>Matches</h4>
+            <table>
+                <tr><th>Match</th><th>Result</th></tr>
+                <tr><td>Valerie/Alicia <b>vs</b> Vincenzo L./Adrian</td><td><input type="text" size="5" placeholder="1:0" disabled></td></tr>
+                <tr><td>Torsten/Luca <b>vs</b> Nicola/Beate</td><td><input type="text" size="5" placeholder="1:0" disabled></td></tr>
+                <tr><td>Valerie/Alicia <b>vs</b> Torsten/Luca</td><td><input type="text" size="5" placeholder="1:0" disabled></td></tr>
+                <tr><td>Vincenzo L./Adrian <b>vs</b> Nicola/Beate</td><td><input type="text" size="5" placeholder="1:0" disabled></td></tr>
+                <tr><td>Valerie/Alicia <b>vs</b> Nicola/Beate</td><td><input type="text" size="5" placeholder="1:0" disabled></td></tr>
+                <tr><td>Vincenzo L./Adrian <b>vs</b> Torsten/Luca</td><td><input type="text" size="5" placeholder="1:0" disabled></td></tr>
+            </table>
+        </div>
+                <!-- Group C -->
+        <div class="group">
+            <h3>Group C</h3>
+            <table>
+                <tr><th>Team</th><th>W</th><th>Pts</th></tr>
+                <tr><td><b>Ala & Timo</b></td><td>3</td><td>9</td></tr>
+                <tr><td><b>Sunci & Benji</b></td><td>2</td><td>6</td></tr>
+                <tr><td>Dimitri & Chaima</td><td>1</td><td>3</td></tr>
+                <tr><td>Lina & Tobi</td><td>0</td><td>0</td></tr>
+            </table>
+            <h4>Matches</h4>
+            <table>
+                <tr><th>Match</th><th>Result</th></tr>
+                <tr><td>Ala/Timo <b>vs</b> Sunci/Benji</td><td><input type="text" size="5" placeholder="1:0" disabled></td></tr>
+                <tr><td>Dimitri/Chaima <b>vs</b> Lina/Tobi</td><td><input type="text" size="5" placeholder="1:0" disabled></td></tr>
+                <tr><td>Ala/Timo <b>vs</b> Dimitri/Chaima</td><td><input type="text" size="5" placeholder="1:0" disabled></td></tr>
+                <tr><td>Sunci/Benji <b>vs</b> Lina/Tobi</td><td><input type="text" size="5" placeholder="1:0" disabled></td></tr>
+                <tr><td>Ala/Timo <b>vs</b> Lina/Tobi</td><td><input type="text" size="5" placeholder="1:0" disabled></td></tr>
+                <tr><td>Sunci/Benji <b>vs</b> Dimitri/Chaima</td><td><input type="text" size="5" placeholder="1:0" disabled></td></tr>
+            </table>
+        </div>
+<!-- Group B -->
+        <!-- Group D -->
+        <div class="group">
+            <h3>Group D</h3>
+            <table>
+                <tr><th>Team</th><th>W</th><th>Pts</th></tr>
+                <tr><td><b>Andi & Paolo</b></td><td>3</td><td>9</td></tr>
+                <tr><td><b>Evie & Alex</b></td><td>2</td><td>6</td></tr>
+                <tr><td>Tiffany & Aylin</td><td>1</td><td>3</td></tr>
+                <tr><td>Arndt & Maximilian</td><td>0</td><td>0</td></tr>
+            </table>
+            <h4>Matches</h4>
+            <table>
+                <tr><th>Match</th><th>Result</th></tr>
+                <tr><td>Andi/Paolo <b>vs</b> Evie/Alex</td><td><input type="text" size="5" placeholder="1:0" disabled></td></tr>
+                <tr><td>Arndt/Maximilian <b>vs</b> Tiffany/Aylin</td><td><input type="text" size="5" placeholder="0:1" disabled></td></tr>
+                <tr><td>Andi/Paolo <b>vs</b> Arndt/Maximilian</td><td><input type="text" size="5" placeholder="1:0" disabled></td></tr>
+                <tr><td>Evie/Alex <b>vs</b> Tiffany/Aylin</td><td><input type="text" size="5" placeholder="1:0" disabled></td></tr>
+                <tr><td>Andi/Paolo <b>vs</b> Tiffany/Aylin</td><td><input type="text" size="5" placeholder="1:0" disabled></td></tr>
+                <tr><td>Evie/Alex <b>vs</b> Arndt/Maximilian</td><td><input type="text" size="5" placeholder="1:0" disabled></td></tr>
+            </table>
+        </div>
+    </div>
+</body>
+</html>
